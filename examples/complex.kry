@@ -1,0 +1,18 @@
+@plugin flowchart
+
+Flowchart {
+    mermaid = """
+        flowchart LR
+            subgraph Frontend
+                A[Client] --> B[React App]
+            end
+
+            subgraph Backend
+                C[API Server] --> D[(Database)]
+                C --> E[Cache]
+            end
+
+            B --> C
+            E -.-> D
+    """
+}

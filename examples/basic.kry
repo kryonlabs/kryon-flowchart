@@ -1,0 +1,22 @@
+@plugin flowchart
+
+Flowchart {
+    direction = "TB"
+    width = 600
+    height = 400
+
+    nodes = [
+        { id = "start", text = "Start", shape = "rounded" },
+        { id = "process", text = "Process Data", shape = "box" },
+        { id = "decision", text = "Valid?", shape = "diamond" },
+        { id = "success", text = "Success", shape = "rounded" },
+        { id = "error", text = "Error", shape = "rounded" }
+    ]
+
+    edges = [
+        { from = "start", to = "process" },
+        { from = "process", to = "decision" },
+        { from = "decision", to = "success", label = "Yes" },
+        { from = "decision", to = "error", label = "No" }
+    ]
+}

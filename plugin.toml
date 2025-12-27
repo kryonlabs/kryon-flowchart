@@ -1,0 +1,14 @@
+[plugin]
+name = "flowchart"
+version = "1.0.0"
+description = "Flowchart and node diagram support with Mermaid syntax"
+kryon_version_min = "0.1.0"
+
+[components]
+types = ["Flowchart", "FlowchartNode", "FlowchartEdge"]
+
+[features]
+mermaid_parser = true
+terminal_renderer = true
+web_renderer = true
+desktop_renderer = true
