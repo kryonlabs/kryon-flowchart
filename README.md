@@ -1,6 +1,6 @@
 # Kryon Plugins
 
-Official plugin repository for [Kryon](https://github.com/kryon-lang/kryon) - a modular UI framework and intermediate representation.
+Official plugin repository for [Kryon](https://github.com/KryonLabs/kryon) - a modular UI framework and intermediate representation.
 
 ## Plugins
 
