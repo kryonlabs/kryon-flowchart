@@ -1,0 +1,23 @@
+[plugin]
+name = "storage"
+version = "1.0.0"
+description = "localStorage-like persistent storage for all Kryon frontends"
+license = "0BSD"
+repository = "https://github.com/kryon-plugins/storage"
+
+[compatibility]
+kryon_version = ">=0.3.0"
+api_version = "1.0"
+
+[capabilities]
+# No rendering capabilities - service plugin only
+features = ["persistent", "json", "cross_platform", "auto_save"]
+
+[build]
+c_sources = ["src/*.c"]
+c_headers = ["include/kryon_storage.h"]
+dependencies = []
+
+[bindings]
+nim = true
+lua = true
