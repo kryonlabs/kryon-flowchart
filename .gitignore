@@ -1,9 +1,11 @@
 # Build artifacts
 *.o
+*.obj
 *.so
 *.a
 *.dylib
 *.dll
+*.exe
 
 # Editor/IDE files
 .vscode/
@@ -16,6 +18,45 @@
 # Build directories
 build/
 dist/
+bin/
+lib/
 
 # Compiled plugins
 libkryon_*.so
+libkryon_*.a
+libkryon_*.dylib
+
+# Nim compiler cache
+nimcache/
+@m*.nim.c
+@m*.nim.c.o
+
+# Kryon IR generated files
+*.kir
+*.kirb
+
+# Logs and cache
+*.log
+.cache/
+.kryon_cache/
+
+# CMake
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile.bak
+compile_commands.json
+
+# Debug files
+*.dSYM/
+*.su
+*.idb
+*.pdb
+
+# Compiled binaries (examples)
+examples/nim/simple_drawing
+examples/nim/colors_demo
+examples/nim/patterns_demo
+examples/nim/shapes_demo
+examples/nim/canvas_test
+examples/nim/test_*
