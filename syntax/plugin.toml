@@ -1,0 +1,33 @@
+# Kryon Syntax Plugin Metadata
+# This file is read by ir_plugin_discover() when scanning for plugins
+
+[plugin]
+name = "syntax"
+version = "1.0.0"
+description = "Syntax highlighting for code blocks across all Kryon renderers"
+author = "Kryon Labs"
+license = "MIT"
+
+[capabilities]
+# No command IDs - this plugin provides functions, not IR command handlers
+command_ids = []
+
+# Works with all rendering backends
+backends = ["web", "desktop", "terminal"]
+
+[build]
+# Name of the shared library (relative to plugin directory)
+library = "libkryon_syntax.so"
+
+[exports]
+# Functions exported by this plugin for use by other components
+functions = [
+    "syntax_tokenize",
+    "syntax_free_tokens",
+    "syntax_supports_language",
+    "syntax_list_languages",
+    "syntax_token_class",
+    "syntax_get_theme",
+    "syntax_theme_color",
+    "syntax_list_themes"
+]
