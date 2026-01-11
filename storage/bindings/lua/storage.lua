@@ -344,7 +344,7 @@ function Storage.init(appName)
         Storage._initialized = true
         return true
     else
-        error("Storage.init: failed with error code " .. result)
+        error(string.format("Storage.init: failed with error code %d", tonumber(result)))
     end
 end
 

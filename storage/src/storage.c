@@ -218,8 +218,13 @@ kryon_storage_result_t kryon_storage_init(const char* app_name) {
         free(json_content);
     }
 
-    // If file doesn't exist, that's OK (first run)
-    if (result == KRYON_STORAGE_ERROR_NOT_FOUND || result == KRYON_STORAGE_ERROR_IO) {
+    // If file doesn't exist or is corrupt, that's OK (start fresh)
+    if (result == KRYON_STORAGE_ERROR_NOT_FOUND ||
+        result == KRYON_STORAGE_ERROR_IO ||
+        result == KRYON_STORAGE_ERROR_PARSE) {
+        if (result == KRYON_STORAGE_ERROR_PARSE) {
+            fprintf(stderr, "[storage] Warning: Corrupt storage file, starting fresh\n");
+        }
         result = KRYON_STORAGE_OK;
     }
 

@@ -215,29 +215,9 @@ static char* syntax_web_renderer(IRComponent* component, const char* theme) {
  * Returns 0 on success, non-zero on failure.
  */
 int kryon_syntax_plugin_init(void) {
-    IRPluginMetadata meta;
-    memset(&meta, 0, sizeof(meta));
-
-    strncpy(meta.name, "syntax", sizeof(meta.name) - 1);
-    strncpy(meta.version, "1.0.0", sizeof(meta.version) - 1);
-    strncpy(meta.description, "Syntax highlighting for code blocks", sizeof(meta.description) - 1);
-    strncpy(meta.kryon_version_min, "0.1.0", sizeof(meta.kryon_version_min) - 1);
-
-    // Syntax plugin doesn't handle IR commands directly
-    // It provides functions (syntax_tokenize, etc.) that other parts call
-    meta.command_id_start = 0;
-    meta.command_id_end = 0;
-
-    // No specific backend capabilities required
-    meta.required_capabilities = NULL;
-    meta.capability_count = 0;
-
-    // Register with the plugin system
-    int result = ir_plugin_register(&meta);
-    if (result != 0) {
-        fprintf(stderr, "[kryon][syntax] Plugin registration failed\n");
-        return result;
-    }
+    // NOTE: Plugin registration is handled by the loading system (ir_plugin_load_with_metadata)
+    // when loaded via discovery. Only self-register if loaded directly without discovery info.
+    // Check if already registered to avoid duplicate registration.
 
     printf("[kryon][syntax] Syntax highlighting plugin initialized (v1.0.0)\n");
     printf("[kryon][syntax] Supported languages: ");

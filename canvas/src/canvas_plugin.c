@@ -537,23 +537,9 @@ static void canvas_component_renderer_sdl3(void* backend_ctx, const IRComponent*
 
 bool kryon_canvas_plugin_init(void) {
 #ifdef ENABLE_SDL3
-    // Register plugin metadata
-    const char* required_caps[] = {"2d_shapes", NULL};
-    IRPluginMetadata metadata = {
-        .name = "canvas",
-        .version = "1.0.0",
-        .description = "Love2D-style immediate mode canvas",
-        .kryon_version_min = "0.3.0",
-        .command_id_start = CANVAS_CMD_CIRCLE,
-        .command_id_end = CANVAS_CMD_ARC,
-        .required_capabilities = required_caps,
-        .capability_count = 1
-    };
-
-    if (!ir_plugin_register(&metadata)) {
-        fprintf(stderr, "[canvas_plugin] Failed to register plugin metadata\n");
-        return false;
-    }
+    // NOTE: Plugin registration (ir_plugin_register) is handled by the loading system
+    // (ir_plugin_load_with_metadata) when loaded via discovery. We only need to register
+    // event types, handlers, and renderers here.
 
     // Register custom event types
     if (!ir_plugin_register_event_type("canvas", "canvas_draw", 100,
